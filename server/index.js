@@ -1,11 +1,14 @@
-var express = require('express');
-var app = express();
-var data = require('./MOCK_DATA.json');
+var express = require('express')
+var cors = require('cors')
+var data = require('./MOCK_DATA.json')
+
+var app = express()
+app.use(cors())
 
 app.get('/', function (req, res) {
-  res.status(200).send(data);
-});
+  res.status(200).json(data)
+})
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+app.listen(5000, function () {
+  console.log('Example app listening on port 5000!')
+})
