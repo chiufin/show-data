@@ -1,16 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { configureStore } from "redux-starter-kit";
 import { Provider } from "react-redux";
-import rootReducer from './reducers'
-import App from './components/App';
+import store from './app/store'
+import App from './app/App';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
-
-
-const store = configureStore({
-    reducer: rootReducer
-})
 
 render(
     <Provider store={store}>
