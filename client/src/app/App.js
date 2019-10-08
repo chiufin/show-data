@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Grid from '../components/Grid'
+import GridPage from '../components/GridPage'
 import Chart from '../components/Chart'
 import './App.css';
 
@@ -25,7 +25,7 @@ const App = () => (
     </nav>
     <Switch>
       <Route path="/grid">
-        <Grid />
+        <GridPage />
       </Route>
       <Route path="/chart">
         <Chart />
