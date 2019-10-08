@@ -1,8 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Footer from '../features/filters/Footer'
-import AddTodo from '../features/todos/AddTodo'
-import VisibleTodoList from '../features/todos/VisibleTodoList'
 import Grid from '../components/Grid'
 import Chart from '../components/Chart'
 import './App.css';
@@ -38,9 +35,6 @@ const App = () => (
       </Route>
     </Switch>
     <div>
-      <AddTodo />
-      <VisibleTodoList />
-      <Footer />
     </div>
   </Router>
 

@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux'
-import todosReducer from '../features/todos/todosSlice'
-import visibilityFilterReducer from '../features/filters/filtersSlice'
 import gridReducer from '../features/grid/gridSlice'
+import paginationReducer from '../features/pagination/paginationSlice'
+
 
 export default combineReducers({
-  todos: todosReducer,
-  visibilityFilter: visibilityFilterReducer,
-  gridList: gridReducer,
+  list: gridReducer,
+  pagination: paginationReducer,
 })

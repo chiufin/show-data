@@ -1,7 +1,6 @@
 import { createSlice } from 'redux-starter-kit'
 import { getMockData } from '../../api/index';
 
-
 const gridSlice = createSlice({
   slice: 'grid',
   initialState: [],
@@ -12,15 +11,12 @@ const gridSlice = createSlice({
   }
 })
 
-
-
 export const fetchMockData = () => async dispatch => {
   try {
       const data = await getMockData()
       const json = await data.json()
       dispatch(getData(json))
   } catch (err) {
-  
   }
 }
 

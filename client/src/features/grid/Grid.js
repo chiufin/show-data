@@ -3,27 +3,6 @@ import { connect } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchMockData } from './gridSlice'
 
-const Grid = ({list}) => {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchMockData())
-  }, [dispatch])
-
-  if(list.length === 0){
-    return "loading"
-  }
-
-  return (
-    <div>
-      <table>
-        <TableHead />
-        <TableBody list={list} pageStart={0} limit={10}/>
-      </table>
-    </div>
-  )
-}
-
 const config = {
   id: 'Unique Identifier',
   first_name: 'First Name',
@@ -32,6 +11,28 @@ const config = {
   industry: 'Industry',
   salary: 'Annual income',
 }
+
+const Grid = ({list}) => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchMockData())
+  }, [dispatch])
+
+  if(!list || list.length === 0){
+    return "loading"
+  }
+
+  return (
+    <div>
+      <table>
+        <TableHead />
+        <TableBody list={list}/>
+      </table>
+    </div>
+  )
+}
+
 
 const TableHead = () => {
   return (
@@ -43,10 +44,11 @@ const TableHead = () => {
   )
 }
 
-const TableBody = ({list, pageStart, limit}) => {
+const TableBody = ({list}) => {
+  let filterList = list
   return (
     <tbody>
-      {list.map(eachData => {
+      {filterList.map(eachData => {
         const { id } = eachData
         return(
           <TableRow key={`row-${id}`} data={eachData}/>
@@ -65,13 +67,9 @@ const TableRow = ({ data }) => {
   )
 }
 
-const mapStateToProps = ({ gridList }) => ({
-  list: gridList
-})
 
 const mapDispatchToProps = { fetchMockData }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  null, mapDispatchToProps
 )(Grid)
