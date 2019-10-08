@@ -4,9 +4,9 @@ import { GridColFilters } from './filtersSlice'
 
 const Filter = () => (
   <div>
-    <FilterLink filter={GridColFilters.ALL}>SHOW ALL</FilterLink>
+    <FilterLink filter={GridColFilters.RESET}>RESET</FilterLink>
     <FilterLink filter={GridColFilters.DOB}>DOB</FilterLink>
-    <FilterLink filter={GridColFilters.INDUSTRY}>INDUSTRY</FilterLink>
+    <FilterLink filter={GridColFilters.INDUSTRY} active={true}>INDUSTRY</FilterLink>
     <FilterLink filter={GridColFilters.ANNUAL_INCOME}>ANNUAL_INCOME</FilterLink>
   </div>
 )

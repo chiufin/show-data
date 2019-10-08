@@ -1,7 +1,7 @@
 import { createSlice } from 'redux-starter-kit'
 
 export const GridColFilters = {
-    ALL: 'ALL',
+    RESET: 'RESET',
     DOB: 'DOB',
     INDUSTRY: 'INDUSTRY',
     ANNUAL_INCOME: 'ANNUAL_INCOME'
@@ -9,7 +9,7 @@ export const GridColFilters = {
 
 const filtersSlice = createSlice({
   slice: 'filters',
-  initialState: GridColFilters.ALL,
+  initialState: GridColFilters.RESET,
   reducers: {
     changeFilter(state, action) {
       return action.payload
