@@ -23,7 +23,7 @@ Link.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.pagination
+  active: false
 })
 
 const mapDispatchToProps = { changePage }

@@ -7,9 +7,14 @@ export const PaginationFilters = {
 
 const paginationSlice = createSlice({
   slice: 'pagination',
-  initialState: PaginationFilters.NEXT,
+  initialState: {
+    start: 0,
+    amount: 20,
+    total: 500
+  },
   reducers: {
     changePage(state, action) {
+      console.log(action.payload)
       return action.payload
     }
   }
