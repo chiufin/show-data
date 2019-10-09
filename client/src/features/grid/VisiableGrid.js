@@ -4,11 +4,30 @@ import { GridColFilters } from '../filters/filtersSlice'
 import Grid from './Grid'
 
 const selectList = state => state.list
+const selectSearch = state => state.search
 const selectFilter = state => state.filter
 const selectPagination = state => state.pagination
 
+const selectSearchList = createSelector(
+    [selectList, selectSearch],
+    (list, searchWord) => {
+        if(!searchWord ){
+            return list
+        }
+        let searchedList = []
+        for(let i of list){
+            if(i['first_name'] && i['first_name'].search(searchWord) >= 0){
+                searchedList.push(i)
+            }else if(i['last_name'] && i['last_name'].search(searchWord) >= 0){
+                searchedList.push(i)
+            }
+        }
+        return searchedList
+    }
+)
+
 const selectFilterList = createSelector(
-    [selectList, selectFilter],
+    [selectSearchList, selectFilter],
     (list, filter) => {
         switch (filter) {
             case GridColFilters.INIT:
