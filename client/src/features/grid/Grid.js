@@ -19,9 +19,6 @@ const Grid = ({list}) => {
     dispatch(fetchMockData())
   }, [dispatch])
 
-  if(!list || list.length === 0){
-    return "loading"
-  }
 
   return (
     <div>

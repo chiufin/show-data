@@ -25,7 +25,9 @@ const paginationSlice = createSlice({
           state.start = 0
           break;
         case PaginationFilters.NEXT:
-          state.start += state.amount
+          if(state.total-1 - (state.start + state.amount) > 0){
+            state.start += state.amount
+          }
           break;
         case PaginationFilters.PREVIOUS: 
           if(state.start > 0){
