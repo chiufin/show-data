@@ -1,12 +1,11 @@
 import { connect } from 'react-redux'
 import { createSelector } from 'redux-starter-kit'
 import { GridColFilters } from '../filters/filtersSlice'
-// import { PaginationFilters } from '../pagination/paginationSlice'
 import Grid from './Grid'
 
 const selectList = state => state.list
 const selectFilter = state => state.filter
-// const selectPagination = state => state.pagination
+const selectPagination = state => state.pagination
 
 const selectFilterList = createSelector(
     [selectList, selectFilter],
@@ -34,28 +33,23 @@ const selectFilterList = createSelector(
                 return sortMethod(list, 'salary')
             default:
                 throw new Error('Unknown filter: ' + filter)
-        }
+        }        
     }
 )
 
-// const selectPaginationList = createSelector(
-//     [selectList, selectPagination],
-//     (list, pagination) => {
-//         console.log(list)
-//         switch (pagination) {
-//             case PaginationFilters.PREVIOUS:
-//                 return list
-//             case PaginationFilters.NEXT:
-//                 return list
-//             default:
-//                 throw new Error('Unknown pagination: ' + pagination)
-//         }
-//     }
-// )
+const totalSelector = createSelector(
+    selectFilterList,
+    selectPagination,
+    (filterList, {start, amount}) => {
+        return filterList.slice(start, start+amount)
+    }
+  )
 
-const mapStateToProps = (state) => ({
-    list: selectFilterList(state)
-})
+const mapStateToProps = (state) => {
+    return{
+        list: totalSelector(state)
+    }
+}
 
 export default connect(
     mapStateToProps,
