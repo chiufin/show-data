@@ -1,6 +1,6 @@
 import { createSlice } from 'redux-starter-kit'
 import { getMockData } from '../../api/index';
-
+import { setPageTotal } from '../pagination/paginationSlice'
 const gridSlice = createSlice({
   slice: 'grid',
   initialState: [],
@@ -16,6 +16,7 @@ export const fetchMockData = () => async dispatch => {
       const data = await getMockData()
       const json = await data.json()
       dispatch(getData(json))
+      dispatch(setPageTotal(json.length))
   } catch (err) {
   }
 }
