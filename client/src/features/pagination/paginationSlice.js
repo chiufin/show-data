@@ -6,6 +6,11 @@ export const PaginationFilters = {
   NEXT: 'NEXT'
 }
 
+export const PaginationSize = {
+  SMALL: 'SMALL',
+  LARGE: 'LARGE'
+}
+
 const paginationSlice = createSlice({
   slice: 'pagination',
   initialState: {
@@ -32,10 +37,21 @@ const paginationSlice = createSlice({
     },
     setPageTotal(state, action) {
       state.total = action.payload
+    },
+    changePageSize(state, action) {
+      switch(action.payload){
+        case PaginationSize.SMALL:
+          state.amount = 20
+          break;
+        case PaginationSize.LARGE:
+          state.amount = 100
+          break;
+        default:
+      }
     }
   }
 })
 
-export const { changePage, setPageTotal } = paginationSlice.actions
+export const { changePage, setPageTotal, changePageSize } = paginationSlice.actions
 
 export default paginationSlice.reducer
