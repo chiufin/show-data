@@ -3,6 +3,13 @@ import { createSelector } from 'redux-starter-kit'
 import { GridColFilters } from '../filters/filtersSlice'
 import Grid from './Grid'
 
+const searchFnt = (item ,key, searchWord) => {
+    let upperCaseItem = item[key].toUpperCase()
+    let  upperCaseSearchWord = searchWord.toUpperCase()
+    return upperCaseItem.indexOf(upperCaseSearchWord) > -1
+}
+
+
 const selectList = state => state.list
 const selectSearch = state => state.search
 const selectFilter = state => state.filter
@@ -16,9 +23,9 @@ const selectSearchList = createSelector(
         }
         let searchedList = []
         for(let i of list){
-            if(i['first_name'] && i['first_name'].search(searchWord) >= 0){
+            if(i['first_name'] && searchFnt(i, 'first_name', searchWord)){
                 searchedList.push(i)
-            }else if(i['last_name'] && i['last_name'].search(searchWord) >= 0){
+            }else if(i['last_name'] && searchFnt(i, 'last_name', searchWord)){
                 searchedList.push(i)
             }
         }
