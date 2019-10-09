@@ -46,10 +46,6 @@ const totalSelector = createSelector(
   )
 
 const mapStateToProps = (state) => {
-    // let filterList = selectFilterList(state)
-    // let updateState = state
-    // updateState.list = filterList
-    // let paginationList = selectPaginationList(updateState)
     return{
         list: totalSelector(state)
     }
