@@ -23,6 +23,7 @@ Link.propTypes = {
   active: PropTypes.bool,
   children: PropTypes.node.isRequired,
   changeFilter: PropTypes.func.isRequired,
+  changePage: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired
 }
 
