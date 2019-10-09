@@ -1,11 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { changeFilter } from './filtersSlice'
+import { changePage, PaginationFilters } from '../pagination/paginationSlice'
 import PropTypes from 'prop-types'
 
-const Link = ({ active, children, changeFilter, filter }) => (
+const Link = ({ active, children, changeFilter, changePage, filter }) => (
   <button
-    onClick={() => changeFilter(filter)}
+    onClick={() => {
+      changeFilter(filter)
+      changePage(PaginationFilters.INIT)
+    }}
     disabled={active}
     style={{
       marginLeft: '4px'
@@ -23,7 +27,7 @@ Link.propTypes = {
 }
 
 
-const mapDispatchToProps = { changeFilter }
+const mapDispatchToProps = { changeFilter, changePage }
 
 export default connect(
   null,

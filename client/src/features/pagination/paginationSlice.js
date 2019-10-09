@@ -16,6 +16,9 @@ const paginationSlice = createSlice({
   reducers: {
     changePage(state, action) {
       switch(action.payload){
+        case PaginationFilters.INIT:
+          state.start = 0
+          break;
         case PaginationFilters.NEXT:
           state.start += state.amount
           break;
