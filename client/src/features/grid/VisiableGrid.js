@@ -11,7 +11,7 @@ const selectFilterList = createSelector(
     [selectList, selectFilter],
     (list, filter) => {
         switch (filter) {
-            case GridColFilters.RESET:
+            case GridColFilters.INIT:
                 return list
             case GridColFilters.DOB:
                 const compare = (a, b) => {
