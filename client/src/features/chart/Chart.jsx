@@ -18,8 +18,10 @@ const Chart = ({data}) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  data: state.list
+const mapStateToProps = ({list, chart}) => ({
+  data: list,
+  chart: chart
+
 })
 
 const mapDispatchToProps = { fetchMockData }
