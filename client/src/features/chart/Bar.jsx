@@ -1,8 +1,10 @@
 import React from 'react'
 import { Bar } from '@nivo/bar'
+//import { newDateList } from '../../utils'
 
 const BarFigure = ({data}) => {
-    const keys = ['salary', 'years_of_experience'];
+    //const newList = newDateList(data)
+    const keys = ['salary'];
     const commonProps = {
         width: 900,
         height: 500,
@@ -16,7 +18,31 @@ const BarFigure = ({data}) => {
         labelSkipHeight: 16,
     };
     return (
-        <Bar {...commonProps} />
+        <Bar {...commonProps} legends = {[
+            {
+                dataFrom: 'keys',
+                anchor: 'bottom-right',
+                direction: 'column',
+                justify: false,
+                translateX: 120,
+                translateY: 0,
+                itemsSpacing: 2,
+                itemWidth: 100,
+                itemHeight: 20,
+                itemDirection: 'left-to-right',
+                itemOpacity: 0.85,
+                symbolSize: 20,
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemOpacity: 1
+                        }
+                    }
+                ]
+            }
+        ]}/>
     )
 } 
+
 export default BarFigure
