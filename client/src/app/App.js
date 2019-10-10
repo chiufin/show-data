@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import GridPage from '../components/GridPage'
-import Chart from '../components/Chart'
+import ChartPage from '../components/ChartPage'
 import './App.css';
 
 function Home() {
@@ -28,7 +28,7 @@ const App = () => (
         <GridPage />
       </Route>
       <Route path="/chart">
-        <Chart />
+        <ChartPage />
       </Route>
       <Route path="/">
         <Home />
