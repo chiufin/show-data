@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { changePage } from './paginationSlice'
 import PropTypes from 'prop-types'
+import { PaginationFilters } from './paginationSlice'
 
 const Link = ({ active, children, changePage, filter }) => (
   <button
@@ -22,9 +23,24 @@ Link.propTypes = {
   filter: PropTypes.string.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  active: false
-})
+const mapStateToProps = ({pagination: {start, total, amount}}, {filter}) => {
+  let active = false
+    switch(filter){
+    case PaginationFilters.PREVIOUS:
+      if(start === 0){
+        active = true
+      }
+      break;
+    case PaginationFilters.NEXT:
+      if(total-1 - (start + amount) <= 0){
+        active = true
+      }
+      break;
+    default:
+      break;
+  }
+  return ({ active })
+}
 
 const mapDispatchToProps = { changePage }
 
