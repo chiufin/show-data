@@ -11,6 +11,11 @@ export const PaginationSize = {
   LARGE: 'LARGE'
 }
 
+export const PaginationSizeAmount = {
+  SMALL: 20,
+  LARGE: 100
+}
+
 const paginationSlice = createSlice({
   slice: 'pagination',
   initialState: {
@@ -41,15 +46,7 @@ const paginationSlice = createSlice({
       state.total = action.payload
     },
     changePageSize(state, action) {
-      switch(action.payload){
-        case PaginationSize.SMALL:
-          state.amount = 20
-          break;
-        case PaginationSize.LARGE:
-          state.amount = 100
-          break;
-        default:
-      }
+      state.amount = PaginationSizeAmount[action.payload]
     }
   }
 })

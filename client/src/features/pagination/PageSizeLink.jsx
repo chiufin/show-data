@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { changePageSize, changePage, PaginationFilters } from './paginationSlice'
+import { changePageSize, changePage, PaginationFilters, PaginationSizeAmount } from './paginationSlice'
 import PropTypes from 'prop-types'
 
 const Link = ({ active, children, changePageSize, changePage, size }) => (
@@ -26,9 +26,10 @@ Link.propTypes = {
   size: PropTypes.string.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  active: false
+const mapStateToProps = ({pagination: {amount}}, {size}) => ({
+  active : amount === PaginationSizeAmount[size]
 })
+
 
 const mapDispatchToProps = { changePageSize, changePage }
 

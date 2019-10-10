@@ -20,17 +20,20 @@ const Link = ({ active, children, changeFilter, changePage, filter }) => (
 )
 
 Link.propTypes = {
-  active: PropTypes.bool,
+  active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   changeFilter: PropTypes.func.isRequired,
   changePage: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired
 }
 
+const mapStateToProps = (state, {filter}) => ({
+  active: state.filter === filter
+})
 
 const mapDispatchToProps = { changeFilter, changePage }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Link)
