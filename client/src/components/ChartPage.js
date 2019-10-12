@@ -1,13 +1,11 @@
 import React from 'react'
-import Bar from '../features/chart/Bar'
-import Pie from '../features/chart/Pie'
+import SelectAllChart from '../features/chart/SelectAllChart'
 
 const ChartPage = () => {
     return (
         <div>
             <h2>Chart</h2>
-            <Bar />
-            <Pie />
+            <SelectAllChart />
         </div>
     );
 }
