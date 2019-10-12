@@ -1,7 +1,17 @@
-import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,} from 'recharts';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { useDispatch } from 'react-redux'
+import { fetchMockData } from '../grid/gridSlice'
+
 
 const Chart = () => {  
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(fetchMockData())
+    }, [dispatch])
+  
     const data = [
         {
           name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
@@ -45,4 +55,15 @@ const Chart = () => {
     )
 }
 
-export default Chart
+const mapStateToProps = ({list}) => {
+    return {
+        list
+    }
+}
+
+const mapDispatchToProps = { fetchMockData }
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Chart)
