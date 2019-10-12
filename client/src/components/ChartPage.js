@@ -1,11 +1,11 @@
 import React from 'react'
-import Chart from '../features/chart/Chart'
+import Bar from '../features/chart/Bar'
 
 const ChartPage = () => {
     return (
         <div>
             <h2>Chart</h2>
-            <Chart />
+            <Bar />
         </div>
     );
 }

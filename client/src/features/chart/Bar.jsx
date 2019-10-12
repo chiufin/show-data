@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'rech
 import { useDispatch } from 'react-redux'
 import { fetchMockData } from '../grid/gridSlice'
 
-const Chart = ({list}) => {  
+const BarGraph = ({list}) => {  
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -61,4 +61,4 @@ const mapDispatchToProps = { fetchMockData }
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Chart)
+)(BarGraph)
