@@ -15,6 +15,8 @@ const AllChart = ({data}) => {
 
     return (
         <div>
+            <p>Get all data DOB, count the number of people per month</p>
+            <p>bar and pie use same data</p>
             <Bar data={data}/>
             <Pie data={data}/>
         </div>
