@@ -21,24 +21,24 @@ const paginationSlice = createSlice({
   initialState: {
     start: 0,
     amount: 20,
-    total: 0,
+    total: 0
   },
   reducers: {
     changePage(state, action) {
-      switch(action.payload){
+      switch (action.payload) {
         case PaginationFilters.INIT:
           state.start = 0
-          break;
+          break
         case PaginationFilters.NEXT:
-          if(state.total-1 - (state.start + state.amount) > 0){
+          if (state.total - 1 - (state.start + state.amount) > 0) {
             state.start += state.amount
           }
-          break;
-        case PaginationFilters.PREVIOUS: 
-          if(state.start > 0){
+          break
+        case PaginationFilters.PREVIOUS:
+          if (state.start > 0) {
             state.start -= state.amount
           }
-          break;
+          break
         default:
       }
     },
@@ -51,6 +51,10 @@ const paginationSlice = createSlice({
   }
 })
 
-export const { changePage, setPageTotal, changePageSize } = paginationSlice.actions
+export const {
+  changePage,
+  setPageTotal,
+  changePageSize
+} = paginationSlice.actions
 
 export default paginationSlice.reducer

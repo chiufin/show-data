@@ -1,10 +1,10 @@
 import { createSlice } from 'redux-starter-kit'
 
 export const GridColFilters = {
-    INIT: 'INIT',
-    DOB: 'DOB',
-    INDUSTRY: 'INDUSTRY',
-    ANNUAL_INCOME: 'ANNUAL_INCOME'
+  INIT: 'INIT',
+  DOB: 'DOB',
+  INDUSTRY: 'INDUSTRY',
+  ANNUAL_INCOME: 'ANNUAL_INCOME'
 }
 
 const filtersSlice = createSlice({

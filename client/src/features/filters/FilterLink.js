@@ -27,7 +27,7 @@ Link.propTypes = {
   filter: PropTypes.string.isRequired
 }
 
-const mapStateToProps = (state, {filter}) => ({
+const mapStateToProps = (state, { filter }) => ({
   active: state.filter === filter
 })
 
