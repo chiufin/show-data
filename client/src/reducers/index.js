@@ -4,7 +4,6 @@ import filterReducer from '../features/filters/filtersSlice'
 import paginationReducer from '../features/pagination/paginationSlice'
 import searchReducer from '../features/search/searchSlice'
 
-
 export default combineReducers({
   list: gridReducer,
   filter: filterReducer,

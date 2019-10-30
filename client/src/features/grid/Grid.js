@@ -7,51 +7,48 @@ const config = {
   id: 'Unique Identifier',
   first_name: 'First Name',
   last_name: 'Last Name',
-  date_of_birth: 'DOB' ,
+  date_of_birth: 'DOB',
   industry: 'Industry',
-  salary: 'Annual income',
+  salary: 'Annual income'
 }
 
-const Grid = ({list}) => {
+const Grid = ({ list }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchMockData())
   }, [dispatch])
 
-
   return (
     <div>
       <table>
         <TableHead />
-        <TableBody list={list}/>
+        <TableBody list={list} />
       </table>
     </div>
   )
 }
 
-
 const TableHead = () => {
   return (
     <thead>
       <tr>
-        {Object.entries(config).map(title => <th key={title[0]}>{title[1]}</th>)}
+        {Object.entries(config).map(title => (
+          <th key={title[0]}>{title[1]}</th>
+        ))}
       </tr>
     </thead>
   )
 }
 
-const TableBody = ({list}) => {
+const TableBody = ({ list }) => {
   let filterList = list
   return (
     <tbody>
       {filterList.map(eachData => {
         const { id } = eachData
-        return(
-          <TableRow key={`row-${id}`} data={eachData}/>
-        )
+        return <TableRow key={`row-${id}`} data={eachData} />
       })}
-      
     </tbody>
   )
 }
@@ -59,14 +56,16 @@ const TableBody = ({list}) => {
 const TableRow = ({ data }) => {
   return (
     <tr>
-      {Object.entries(config).map(key => <td key={`${[key[0]]}-${data.id}`}>{data[key[0]]}</td>)}
+      {Object.entries(config).map(key => (
+        <td key={`${[key[0]]}-${data.id}`}>{data[key[0]]}</td>
+      ))}
     </tr>
   )
 }
 
-
 const mapDispatchToProps = { fetchMockData }
 
 export default connect(
-  null, mapDispatchToProps
+  null,
+  mapDispatchToProps
 )(Grid)

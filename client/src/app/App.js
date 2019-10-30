@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import GridPage from '../components/GridPage'
 import ChartPage from '../components/ChartPage'
-import './App.css';
+import './App.css'
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>Home</h2>
 }
 
 const App = () => (
@@ -34,10 +34,8 @@ const App = () => (
         <Home />
       </Route>
     </Switch>
-    <div>
-    </div>
+    <div></div>
   </Router>
-
 )
 
 export default App
